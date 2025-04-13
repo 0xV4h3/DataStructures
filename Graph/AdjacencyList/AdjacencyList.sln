@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35919.96 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectedGraph", "DirectedGraph\DirectedGraph.vcxproj", "{E699D1EB-43DF-4E42-B036-98E5E066E3E6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UndirectedGraph", "UndirectedGraph\UndirectedGraph.vcxproj", "{1C42190A-E6DE-4F29-B9D9-22F41427514A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{E699D1EB-43DF-4E42-B036-98E5E066E3E6}.Release|x64.Build.0 = Release|x64
 		{E699D1EB-43DF-4E42-B036-98E5E066E3E6}.Release|x86.ActiveCfg = Release|Win32
 		{E699D1EB-43DF-4E42-B036-98E5E066E3E6}.Release|x86.Build.0 = Release|Win32
+		{1C42190A-E6DE-4F29-B9D9-22F41427514A}.Debug|x64.ActiveCfg = Debug|x64
+		{1C42190A-E6DE-4F29-B9D9-22F41427514A}.Debug|x64.Build.0 = Debug|x64
+		{1C42190A-E6DE-4F29-B9D9-22F41427514A}.Debug|x86.ActiveCfg = Debug|Win32
+		{1C42190A-E6DE-4F29-B9D9-22F41427514A}.Debug|x86.Build.0 = Debug|Win32
+		{1C42190A-E6DE-4F29-B9D9-22F41427514A}.Release|x64.ActiveCfg = Release|x64
+		{1C42190A-E6DE-4F29-B9D9-22F41427514A}.Release|x64.Build.0 = Release|x64
+		{1C42190A-E6DE-4F29-B9D9-22F41427514A}.Release|x86.ActiveCfg = Release|Win32
+		{1C42190A-E6DE-4F29-B9D9-22F41427514A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
