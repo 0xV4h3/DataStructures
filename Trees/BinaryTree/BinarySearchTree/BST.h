@@ -336,7 +336,7 @@ public:
 
     void balance() {
         std::unique_lock<std::shared_mutex> lock(mtx);
-        auto nodes = InorderTraversal_internal();
+        auto nodes = InorderTraversalVector_internal();
         _Root = buildBalancedTree(nodes, 0, static_cast<int>(nodes.size()) - 1);
     }
 
@@ -498,7 +498,7 @@ protected:
         return Max;
     }
 
-    std::vector<std::shared_ptr<Node>> InorderTraversal_internal() const {
+    std::vector<std::shared_ptr<Node>> InorderTraversalVector_internal() const {
         std::vector<std::shared_ptr<Node>> result;
         InorderTraversal_internal(_Root, result);
         return result;
