@@ -20,7 +20,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AVL.cpp">
+    <ClCompile Include="AVLInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -131,7 +131,7 @@
     <ClInclude Include="BST.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BST.cpp" />
+    <ClCompile Include="BSTInterface.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

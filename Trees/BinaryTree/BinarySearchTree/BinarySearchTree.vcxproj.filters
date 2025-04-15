@@ -20,7 +20,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BST.cpp">
+    <ClCompile Include="BSTInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
