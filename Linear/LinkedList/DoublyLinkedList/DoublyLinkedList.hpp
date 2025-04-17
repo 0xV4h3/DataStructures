@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <optional>
 #include <memory>
 #include <shared_mutex>
@@ -538,6 +539,18 @@ public:
     size_t size() const {
         std::shared_lock lock(mtx);
         return count;
+    }
+
+    //Displaying
+
+    void print() const {
+        std::shared_lock lock(mtx); 
+        auto current = head;
+        while (current) {
+            std::cout << "(" << current->data.first << ", " << current->data.second << ") ";
+            current = current->next;
+        }
+        std::cout << std::endl;
     }
 
     // Floyd’s Cycle Finding Algorithm
