@@ -11,7 +11,7 @@ public:
     std::optional<Value> Top() const;
     bool empty() const;
     size_t size() const;
-
+    void clear();
 private:
     SinglyLinkedList<Value> _list;
     mutable std::shared_mutex _stackmtx;

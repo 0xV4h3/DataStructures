@@ -1,4 +1,4 @@
-#include "Stack.hpp"
+#include "Queue.hpp"
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -18,19 +18,18 @@ bool isNumber(const std::string& str) {
 
 void instructions() {
     cout << "Enter one of the following commands:\n"
-        << " 1 to push a value onto the stack\n"
-        << " 2 to pop a value from the stack\n"
-        << " 3 to report the top value\n"
-        << " 4 to check if the stack is empty\n"
-        << " 5 to report the size of the stack\n"
-        << " 6 to clear the stack\n"
-        << " 7 to exit the program\n";
+        << " 1 to enqueue a value into the queue\n"
+        << " 2 to dequeue a value from the queue\n"
+        << " 3 to check if the queue is empty\n"
+        << " 4 to report the size of the queue\n"
+        << " 5 to clear the queue\n"
+        << " 6 to exit the program\n";
 }
 
-const size_t CHOICE = 7;
+const size_t CHOICE = 6;
 
 int main() {
-    Stack<int> myStack;
+    Queue<int> myQueue;
     string input;
     int choice;
 
@@ -51,53 +50,43 @@ int main() {
 
         switch (choice) {
         case 1: {
-            cout << "Enter value to push onto the stack: ";
+            cout << "Enter value to enqueue into the queue: ";
             cin >> input;
             while (!isNumber(input)) {
                 cout << "Value must be a number. Please enter a valid value: ";
                 cin >> input;
             }
             int value = std::stoi(input);
-            myStack.Push(value);
-            cout << "Value " << value << " successfully pushed onto the stack.\n";
+            myQueue.enqueue(value);
+            cout << "Value " << value << " successfully enqueued into the queue.\n";
             break;
         }
         case 2: {
-            auto poppedValue = myStack.Pop();
-            if (poppedValue.has_value()) {
-                cout << "Popped value from the stack: " << poppedValue.value() << "\n";
+            auto dequeuedValue = myQueue.dequeue();
+            if (dequeuedValue.has_value()) {
+                cout << "Dequeued value from the queue: " << dequeuedValue.value().get() << "\n";
             }
             else {
-                cout << "The stack is empty, cannot pop a value.\n";
+                cout << "The queue is empty, cannot dequeue a value.\n";
             }
             break;
         }
         case 3: {
-            auto toppedValue = myStack.Top();
-            if (toppedValue.has_value()) {
-                cout << "Top value on the stack: " << toppedValue.value() << "\n";
+            if (myQueue.empty()) {
+                cout << "The queue is empty.\n";
             }
             else {
-                cout << "The stack is empty, no top value available.\n";
+                cout << "The queue is not empty.\n";
             }
             break;
         }
         case 4: {
-            if (myStack.empty()) {
-                cout << "The stack is empty.\n";
-            }
-            else {
-                cout << "The stack is not empty.\n";
-            }
+            cout << "Size of the queue: " << myQueue.size() << "\n";
             break;
         }
         case 5: {
-            cout << "Size of the stack: " << myStack.size() << "\n";
-            break;
-        }
-        case 6: {
-            myStack.clear();
-            cout << "The stack has been cleared.\n";
+            myQueue.clear();
+            cout << "The queue has been cleared.\n";
             break;
         }
         default:

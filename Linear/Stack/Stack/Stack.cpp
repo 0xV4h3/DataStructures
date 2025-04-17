@@ -44,3 +44,10 @@ size_t Stack<Value>::size() const
     std::shared_lock<std::shared_mutex> lock(_stackmtx);
     return _list.size();
 }
+
+template<typename Value>
+void Stack<Value>::clear()
+{
+    std::unique_lock<std::shared_mutex> lock(_stackmtx);
+    _list.clear(); 
+}
