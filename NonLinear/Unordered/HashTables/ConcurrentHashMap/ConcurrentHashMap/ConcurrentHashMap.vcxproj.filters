@@ -15,18 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ConcurrentHashMap.cpp">
+    <ClCompile Include="ConcurrentHashMap_Interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConcurrentHashMap.h">
+    <ClInclude Include="ConcurrentHashMap.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SinglyLinkedList.h">
+    <ClInclude Include="SinglyLinkedList.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MurmurHash3.h">
+    <ClInclude Include="MurmurHash3.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

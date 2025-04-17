@@ -128,12 +128,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ConcurrentHashMap.cpp" />
+    <ClCompile Include="ConcurrentHashMap_Interface.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConcurrentHashMap.h" />
-    <ClInclude Include="MurmurHash3.h" />
-    <ClInclude Include="SinglyLinkedList.h" />
+    <ClInclude Include="ConcurrentHashMap.hpp" />
+    <ClInclude Include="MurmurHash3.hpp" />
+    <ClInclude Include="SinglyLinkedList.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

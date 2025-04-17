@@ -1,7 +1,7 @@
 #pragma once
 
-#include "SinglyLinkedList.h"    
-#include "MurmurHash3.h"         
+#include "SinglyLinkedList.hpp"    
+#include "MurmurHash3.hpp"         
 #include <vector>
 #include <string>
 #include <random>
