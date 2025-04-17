@@ -128,10 +128,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BST.h" />
+    <ClInclude Include="BST.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BSTInterface.cpp" />
+    <ClCompile Include="BST_Interface.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

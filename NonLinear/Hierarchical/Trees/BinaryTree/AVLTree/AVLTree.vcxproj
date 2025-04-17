@@ -132,10 +132,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AVL.h" />
+    <ClInclude Include="AVL.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AVLInterface.cpp" />
+    <ClCompile Include="AVL_Interface.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
