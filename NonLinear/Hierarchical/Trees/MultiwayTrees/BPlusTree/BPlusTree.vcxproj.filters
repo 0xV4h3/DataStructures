@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BPlusTree.h">
+    <ClInclude Include="BPlusTree.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BPlusTreeNode.h">
+    <ClInclude Include="BPlusTreeNode.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BPlusTreeInterface.cpp">
+    <ClCompile Include="BPlusTree_Interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "BPlusTreeNode.h"
+#include "BPlusTreeNode.hpp"
 #include <memory>
 #include <optional>
 #include <shared_mutex>

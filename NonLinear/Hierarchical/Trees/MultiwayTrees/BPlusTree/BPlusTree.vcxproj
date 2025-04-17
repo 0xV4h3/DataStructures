@@ -128,11 +128,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BPlusTree.h" />
-    <ClInclude Include="BPlusTreeNode.h" />
+    <ClInclude Include="BPlusTree.hpp" />
+    <ClInclude Include="BPlusTreeNode.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BPlusTreeInterface.cpp" />
+    <ClCompile Include="BPlusTree_Interface.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

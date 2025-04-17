@@ -1,6 +1,6 @@
 #pragma once
 
-#include "BTreeNode.h"
+#include "BTreeNode.hpp"
 #include <functional>
 #include <iostream>
 

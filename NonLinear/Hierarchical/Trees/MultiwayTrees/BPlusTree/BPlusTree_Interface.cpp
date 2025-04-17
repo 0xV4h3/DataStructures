@@ -1,33 +1,19 @@
-#include "BPlusTree.h"
+#include "BPlusTree.hpp"
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
-bool isPositiveNumber(const std::string& str) {
-    for (char c : str) {
-        if (!isdigit(c)) {
-            return false;
-        }
-    }
-    return true;
-}
-
 bool isNumber(const std::string& str) {
     if (str.empty()) return false;
-    size_t startIndex = 0;
 
     if (str[0] == '-') {
         if (str.length() == 1) return false;
-        startIndex = 1;
+        return std::all_of(str.begin() + 1, str.end(), ::isdigit);
     }
 
-    for (size_t i = startIndex; i < str.length(); i++) {
-        if (!isdigit(str[i])) {
-            return false;
-        }
-    }
-    return true;
+    return std::all_of(str.begin(), str.end(), ::isdigit);
 }
 
 void instructions() {
@@ -57,7 +43,7 @@ int main() {
     while (true) {
         cin >> input;
 
-        if (isPositiveNumber(input)) {
+        if (!input.empty() && all_of(input.begin(), input.end(), ::isdigit)) {
             choice = std::stoi(input);
             if (choice == CHOICE) break;
         }
