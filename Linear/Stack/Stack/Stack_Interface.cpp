@@ -1,33 +1,19 @@
 #include "Stack.hpp"
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
-bool isPositiveNumber(const std::string& str) {
-    for (char c : str) {
-        if (!isdigit(c)) {
-            return false;
-        }
-    }
-    return true;
-}
-
 bool isNumber(const std::string& str) {
     if (str.empty()) return false;
-    size_t startIndex = 0;
 
     if (str[0] == '-') {
         if (str.length() == 1) return false;
-        startIndex = 1;
+        return std::all_of(str.begin() + 1, str.end(), ::isdigit);
     }
 
-    for (size_t i = startIndex; i < str.length(); i++) {
-        if (!isdigit(str[i])) {
-            return false;
-        }
-    }
-    return true;
+    return std::all_of(str.begin(), str.end(), ::isdigit);
 }
 
 void instructions() {
@@ -37,13 +23,14 @@ void instructions() {
         << " 3 to report the top value\n"
         << " 4 to check if the stack is empty\n"
         << " 5 to report the size of the stack\n"
-        << " 6 to exit the program\n";
+        << " 6 to clear the stack\n"
+        << " 7 to exit the program\n";
 }
 
-const size_t CHOICE = 6;
+const size_t CHOICE = 7;
 
 int main() {
-    Stack<double> myStack;
+    Stack<int> myStack;
     string input;
     int choice;
 
@@ -53,8 +40,8 @@ int main() {
     while (true) {
         cin >> input;
 
-        if (isPositiveNumber(input)) {
-            choice = std::stoi(input);
+        if (!input.empty() && all_of(input.begin(), input.end(), ::isdigit)) {
+            choice = stoi(input);
             if (choice == CHOICE) break;
         }
         else {
@@ -70,7 +57,7 @@ int main() {
                 cout << "Value must be a number. Please enter a valid value: ";
                 cin >> input;
             }
-            double value = std::stod(input);
+            int value = std::stoi(input);
             myStack.Push(value);
             cout << "Value " << value << " successfully pushed onto the stack.\n";
             break;
@@ -88,10 +75,10 @@ int main() {
         case 3: {
             auto toppedValue = myStack.Top();
             if (toppedValue.has_value()) {
-                cout << "Topped value from the stack: " << toppedValue.value() << "\n";
+                cout << "Top value on the stack: " << toppedValue.value() << "\n";
             }
             else {
-                cout << "The stack is empty, cannot top a value.\n";
+                cout << "The stack is empty, no top value available.\n";
             }
             break;
         }
@@ -106,6 +93,13 @@ int main() {
         }
         case 5: {
             cout << "Size of the stack: " << myStack.size() << "\n";
+            break;
+        }
+        case 6: {
+            while (!myStack.empty()) {
+                myStack.Pop();
+            }
+            cout << "The stack has been cleared.\n";
             break;
         }
         default:

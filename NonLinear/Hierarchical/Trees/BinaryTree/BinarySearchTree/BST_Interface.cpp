@@ -1,35 +1,20 @@
 #include "BST.hpp"
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
-bool isPositiveNumber(const std::string& str) {
-    for (char c : str) {
-        if (!isdigit(c)) {
-            return false;
-        }
-    }
-    return true;
-}
-
 bool isNumber(const std::string& str) {
     if (str.empty()) return false;
-    size_t startIndex = 0;
 
     if (str[0] == '-') {
         if (str.length() == 1) return false;
-        startIndex = 1;
+        return std::all_of(str.begin() + 1, str.end(), ::isdigit);
     }
 
-    for (size_t i = startIndex; i < str.length(); i++) {
-        if (!isdigit(str[i])) {
-            return false;
-        }
-    }
-    return true;
+    return std::all_of(str.begin(), str.end(), ::isdigit);
 }
-
 
 void instructions() {
     cout << "Enter one of the following commands:\n"
@@ -73,8 +58,8 @@ int main() {
     while (true) {
         cin >> input;
 
-        if (isPositiveNumber(input)) {
-            choice = std::stoi(input);
+        if (!input.empty() && all_of(input.begin(), input.end(), ::isdigit)) {
+            choice = stoi(input);
             if (choice == CHOICE) break;
         }
         else {
@@ -90,7 +75,7 @@ int main() {
                 cout << "Value must be a number. Please enter a valid value: ";
                 cin >> input;
             }
-            int key = std::stoi(input);
+            int key = stoi(input);
             if (tree.Insert(key)) {
                 cout << "Element " << key << " successfully inserted.\n";
             }
@@ -110,7 +95,7 @@ int main() {
                 cout << "Value must be a number. Please enter a valid value: ";
                 cin >> input;
             }
-            int key = std::stoi(input);
+            int key = stoi(input);
             if (tree.Delete(key)) {
                 cout << "Element " << key << " successfully deleted.\n";
             }
@@ -130,7 +115,7 @@ int main() {
                 cout << "Value must be a number. Please enter a valid value: ";
                 cin >> input;
             }
-            int key = std::stoi(input);
+            int key = stoi(input);
             auto foundNode = tree.Search(key);
             if (foundNode) {
                 cout << "Element " << key << " found.\n";
@@ -232,7 +217,7 @@ int main() {
                 cout << "Value must be a number. Please enter a valid low value: ";
                 cin >> inputLow;
             }
-            low = std::stoi(inputLow);
+            low = stoi(inputLow);
 
             cout << "Enter high value for range search: ";
             cin >> inputHigh;
@@ -240,10 +225,10 @@ int main() {
                 cout << "Value must be a number. Please enter a valid high value: ";
                 cin >> inputHigh;
             }
-            high = std::stoi(inputHigh);
+            high = stoi(inputHigh);
 
             if (low > high) {
-                std::swap(low, high);
+                swap(low, high);
             }
 
             string result = tree.toStringRange(low, high);

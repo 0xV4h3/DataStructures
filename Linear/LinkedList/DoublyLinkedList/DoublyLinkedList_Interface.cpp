@@ -6,6 +6,17 @@
 
 using namespace std;
 
+bool isNumber(const std::string& str) {
+    if (str.empty()) return false;
+
+    if (str[0] == '-') {
+        if (str.length() == 1) return false; 
+        return std::all_of(str.begin() + 1, str.end(), ::isdigit);
+    }
+
+    return std::all_of(str.begin(), str.end(), ::isdigit);
+}
+
 void instructions() {
     cout << "Enter one of the following commands:\n"
         << " 1 to insert at the front\n"
@@ -51,14 +62,26 @@ int main() {
         switch (choice) {
         case 1: {
             cout << "Enter key and value to insert at the front (e.g., 1 hello): ";
-            cin >> key >> value;
+            cin >> input;
+            while (!isNumber(input)) {
+                cout << "Key must be a number. Please enter a valid key: ";
+                cin >> input;
+            }
+            key = std::stoi(input);
+            cin >> value;
             list.push_front(key, value);
             cout << "Inserted (" << key << ", " << value << ") at the front.\n";
             break;
         }
         case 2: {
             cout << "Enter key and value to insert at the back (e.g., 1 hello): ";
-            cin >> key >> value;
+            cin >> input;
+            while (!isNumber(input)) {
+                cout << "Key must be a number. Please enter a valid key: ";
+                cin >> input;
+            }
+            key = std::stoi(input);
+            cin >> value;
             list.push_back(key, value);
             cout << "Inserted (" << key << ", " << value << ") at the back.\n";
             break;
@@ -90,7 +113,12 @@ int main() {
         }
         case 6: {
             cout << "Enter key to search: ";
-            cin >> key;
+            cin >> input;
+            while (!isNumber(input)) {
+                cout << "Key must be a number. Please enter a valid key: ";
+                cin >> input;
+            }
+            key = std::stoi(input);
             auto result = list.search(key);
             if (result) {
                 cout << "Found (" << result->get().first << ", " << result->get().second << ") in the list.\n";
@@ -115,7 +143,19 @@ int main() {
         }
         case 9: {
             cout << "Enter position, key, and value to insert (e.g., 2 1 hello): ";
-            cin >> pos >> key >> value;
+            cin >> input;
+            while (!isNumber(input)) {
+                cout << "Position must be a number. Please enter a valid position: ";
+                cin >> input;
+            }
+            pos = std::stoi(input);
+            cin >> input;
+            while (!isNumber(input)) {
+                cout << "Key must be a number. Please enter a valid key: ";
+                cin >> input;
+            }
+            key = std::stoi(input);
+            cin >> value;
             try {
                 list.insert(pos, key, value);
                 cout << "Inserted (" << key << ", " << value << ") at position " << pos << ".\n";
@@ -127,7 +167,12 @@ int main() {
         }
         case 10: {
             cout << "Enter position to erase: ";
-            cin >> pos;
+            cin >> input;
+            while (!isNumber(input)) {
+                cout << "Position must be a number. Please enter a valid position: ";
+                cin >> input;
+            }
+            pos = std::stoi(input);
             try {
                 list.erase(pos);
                 cout << "Erased element at position " << pos << ".\n";
@@ -139,7 +184,18 @@ int main() {
         }
         case 11: {
             cout << "Enter range to erase (first last): ";
-            cin >> first >> last;
+            cin >> input;
+            while (!isNumber(input)) {
+                cout << "First position must be a number. Please enter a valid position: ";
+                cin >> input;
+            }
+            first = std::stoi(input);
+            cin >> input;
+            while (!isNumber(input)) {
+                cout << "Last position must be a number. Please enter a valid position: ";
+                cin >> input;
+            }
+            last = std::stoi(input);
             try {
                 list.erase(first, last);
                 cout << "Erased elements from position " << first << " to " << last << ".\n";
@@ -151,7 +207,12 @@ int main() {
         }
         case 12: {
             cout << "Enter index to access: ";
-            cin >> index;
+            cin >> input;
+            while (!isNumber(input)) {
+                cout << "Index must be a number. Please enter a valid index: ";
+                cin >> input;
+            }
+            index = std::stoi(input);
             try {
                 auto& element = list.at(index);
                 cout << "Element at index " << index << ": (" << element.first << ", " << element.second << ")\n";

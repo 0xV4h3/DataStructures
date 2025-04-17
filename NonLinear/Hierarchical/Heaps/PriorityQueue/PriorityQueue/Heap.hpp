@@ -1,6 +1,7 @@
 #pragma once
+#include <iostream>
+#include <string>
 #include <vector>
-#include <stdexcept>
 #include <algorithm>
 
 template<typename T>
@@ -84,6 +85,10 @@ void Heap<T>::heapifyUp(size_t i) {
 
 template<typename T>
 void Heap<T>::visualize() const {
+    if (heap.empty()) {
+        std::cout << "Heap is empty!" << std::endl;
+        return;
+    }
     visualizeNode(0, "", false);
 }
 

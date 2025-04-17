@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <string>
-#include "Heap.h"
+#include "Heap.hpp"
 
 template<typename T>
 class PriorityQueue {
