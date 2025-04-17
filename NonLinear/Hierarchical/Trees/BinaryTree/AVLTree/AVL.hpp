@@ -1,5 +1,5 @@
 #pragma once
-#include "BST.h" 
+#include "BST.hpp" 
 
 template<typename T>
 class AVL : public BST<T> {
