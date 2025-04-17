@@ -128,13 +128,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="LRU.cpp" />
+    <ClInclude Include="ConcurrentHashMap.hpp" />
+    <ClInclude Include="LRU.hpp" />
+    <ClInclude Include="MurmurHash3.hpp" />
+    <ClInclude Include="SinglyLinkedList.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConcurrentHashMap.h" />
-    <ClInclude Include="LRU.h" />
-    <ClInclude Include="MurmurHash3.h" />
-    <ClInclude Include="SinglyLinkedList.h" />
+    <ClCompile Include="LRU_Test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,5 @@
 #pragma once
-#include "ConcurrentHashMap.h"
+#include "ConcurrentHashMap.hpp"
 
 template<typename Key, typename Value>
 class LRU {
