@@ -132,7 +132,6 @@
     <ClInclude Include="SinglyLinkedList.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Queue_Interface.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -64,7 +64,7 @@ int main() {
         case 2: {
             auto dequeuedValue = myQueue.dequeue();
             if (dequeuedValue.has_value()) {
-                cout << "Dequeued value from the queue: " << dequeuedValue.value().get() << "\n";
+                cout << "Dequeued value from the queue: " << dequeuedValue.value() << "\n";
             }
             else {
                 cout << "The queue is empty, cannot dequeue a value.\n";

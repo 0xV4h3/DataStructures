@@ -23,9 +23,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Queue.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="Queue_Interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
