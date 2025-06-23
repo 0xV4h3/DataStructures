@@ -135,7 +135,7 @@ public:
 
     virtual bool Delete(const T& key) override {
         std::unique_lock<std::shared_mutex> lock(this->mtx);
-        NodePtr TargetNode = std::static_pointer_cast<Node>(this->Search(key));
+        NodePtr TargetNode = std::static_pointer_cast<Node>(this->Search_internal(key));
         if (!TargetNode)
             return false;
 

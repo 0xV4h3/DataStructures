@@ -18,6 +18,9 @@
     <ClInclude Include="AVL.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\BinarySearchTree\BST.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AVL_Interface.cpp">

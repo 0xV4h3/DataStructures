@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\BinarySearchTree\BST.hpp" />
     <ClInclude Include="AVL.hpp" />
   </ItemGroup>
   <ItemGroup>

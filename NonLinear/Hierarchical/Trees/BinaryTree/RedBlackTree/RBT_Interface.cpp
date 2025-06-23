@@ -1,4 +1,4 @@
-#include "BST.hpp"
+#include "RBT.hpp"
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -7,7 +7,7 @@ using namespace std;
 
 bool isNumber(const std::string& str) {
     if (str.empty()) return false;
-    
+
     if (str[0] == '-') {
         if (str.length() == 1) return false;
         return std::all_of(str.begin() + 1, str.end(), ::isdigit);
@@ -32,23 +32,22 @@ void instructions() {
         << "12 to display elements in Diagonal Traversal\n"
         << "13 to perform Range Search\n"
         << "14 to get the depth of the tree\n"
-        << "15 to balance the tree\n"
-        << "16 to check if the tree is empty\n"
-        << "17 to check if the tree is full\n"
-        << "18 to check if the tree is complete\n"
-        << "19 to check if the tree is perfect\n"
-        << "20 to check if the tree is balanced\n"
-        << "21 to check if the tree is degenerate\n"
-        << "22 to visualize the tree\n"
-        << "23 to display the minimum key\n"
-        << "24 to display the maximum key\n"
-        << "25 to exit the program\n";
+        << "15 to check if the tree is empty\n"
+        << "16 to check if the tree is full\n"
+        << "17 to check if the tree is complete\n"
+        << "18 to check if the tree is perfect\n"
+        << "19 to check if the tree is balanced\n"
+        << "20 to check if the tree is degenerate\n"
+        << "21 to visualize the tree\n"
+        << "22 to display the minimum key\n"
+        << "23 to display the maximum key\n"
+        << "24 to exit the program\n";
 }
 
-const size_t CHOICE = 25;
+const size_t CHOICE = 24;
 
 int main() {
-    BST<int> tree;
+    RBT<int> tree;
     string input;
     int choice;
 
@@ -135,7 +134,7 @@ int main() {
             break;
         }
         case 5: {
-            tree.~BST();
+            tree.~RBT();
             cout << "The tree has been cleared.\n";
             break;
         }
@@ -252,16 +251,6 @@ int main() {
         }
         case 15: {
             if (tree.isEmpty()) {
-                cout << "The tree is empty, cannot balance it.\n";
-            }
-            else {
-                tree.balance();
-                cout << "Tree successfully balanced.\n";
-            }
-            break;
-        }
-        case 16: {
-            if (tree.isEmpty()) {
                 cout << "The tree is empty.\n";
             }
             else {
@@ -269,7 +258,7 @@ int main() {
             }
             break;
         }
-        case 17: {
+        case 16: {
             if (tree.isEmpty()) {
                 cout << "The tree is empty, cannot check it for fullness.\n";
             }
@@ -281,7 +270,7 @@ int main() {
             }
             break;
         }
-        case 18: {
+        case 17: {
             if (tree.isEmpty()) {
                 cout << "The tree is empty, cannot check it for completeness.\n";
             }
@@ -293,7 +282,7 @@ int main() {
             }
             break;
         }
-        case 19: {
+        case 18: {
             if (tree.isEmpty()) {
                 cout << "The tree is empty, cannot check it for perfection.\n";
             }
@@ -305,7 +294,7 @@ int main() {
             }
             break;
         }
-        case 20: {
+        case 19: {
             if (tree.isEmpty()) {
                 cout << "The tree is empty, cannot check it for balance.\n";
             }
@@ -317,7 +306,7 @@ int main() {
             }
             break;
         }
-        case 21: {
+        case 20: {
             if (tree.isEmpty()) {
                 cout << "The tree is empty, cannot check it for degeneracy.\n";
             }
@@ -329,7 +318,7 @@ int main() {
             }
             break;
         }
-        case 22: {
+        case 21: {
             if (tree.isEmpty()) {
                 cout << "The tree is empty, cannot visualize.\n";
             }
@@ -339,7 +328,7 @@ int main() {
             }
             break;
         }
-        case 23: {
+        case 22: {
             auto minKey = tree.MinimumKey();
             if (minKey) {
                 cout << "Minimum key: " << *minKey << "\n";
@@ -349,7 +338,7 @@ int main() {
             }
             break;
         }
-        case 24: {
+        case 23: {
             auto maxKey = tree.MaximumKey();
             if (maxKey) {
                 cout << "Maximum key: " << *maxKey << "\n";

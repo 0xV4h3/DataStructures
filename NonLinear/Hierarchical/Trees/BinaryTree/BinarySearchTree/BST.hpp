@@ -14,7 +14,7 @@
 
 template<typename T>
 class BST {
-protected:
+public:
     struct Node {
         T _key;
         int _height = 1;
@@ -117,7 +117,7 @@ public:
 
     virtual bool Delete(const T& key) {
         std::unique_lock<std::shared_mutex> lock(mtx);
-        auto TargetNode = Search(key);
+        auto TargetNode = Search_internal(key);
         if (!TargetNode)
             return false;
         if (isLeaf(TargetNode)) {
@@ -164,16 +164,7 @@ public:
 
     std::shared_ptr<Node> Search(const T& key) const {
         std::shared_lock<std::shared_mutex> lock(mtx);
-        auto Current = _Root;
-        while (Current) {
-            if (Current->_key == key)
-                return Current;
-            else if (key < Current->_key)
-                Current = Current->_leftChild;
-            else
-                Current = Current->_rightChild;
-        }
-        return nullptr;
+        return Search_internal(key);
     }
 
     std::optional<T> MinimumKey() const {
@@ -354,12 +345,18 @@ public:
         return node;
     }
 
-    void visualize() const {
+    virtual void visualize() const {
         std::shared_lock<std::shared_mutex> lock(mtx);
         visualize_internal(_Root, "", false);
     }
 
     std::shared_ptr<Node> getRoot() {
+        std::shared_lock<std::shared_mutex> lock(mtx);
+        return _Root;
+    }
+
+    // Â BST<T>
+    std::shared_ptr<Node> getRoot() const {
         std::shared_lock<std::shared_mutex> lock(mtx);
         return _Root;
     }
@@ -482,6 +479,20 @@ protected:
     }
 
     // Internal versions (non thread-safe)
+
+    std::shared_ptr<Node> Search_internal(const T& key) const {
+        auto Current = _Root;
+        while (Current) {
+            if (Current->_key == key)
+                return Current;
+            else if (key < Current->_key)
+                Current = Current->_leftChild;
+            else
+                Current = Current->_rightChild;
+        }
+        return nullptr;
+    }
+
     static std::shared_ptr<Node> Minimum_internal(std::shared_ptr<Node> node) {
         if (!node) return nullptr;
         auto Min = node;
@@ -598,7 +609,7 @@ protected:
             RangeSearch_internal(node->_rightChild, low, high, result);
     }
 
-    static void visualize_internal(std::shared_ptr<Node> node, std::string prefix, bool isLeft) {
+    virtual void visualize_internal(std::shared_ptr<Node> node, std::string prefix, bool isLeft) const {
         if (node) {
             std::cout << prefix;
             std::cout << (isLeft ? "|-- " : "\\-- ");
